@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED150EA71C11C759004D8391 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED150EA51C11C759004D8391 /* TestModel.xcdatamodeld */; };
 		EDAB602B1C0B44400067B59E /* SlickData.h in Headers */ = {isa = PBXBuildFile; fileRef = EDAB602A1C0B44400067B59E /* SlickData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDAB60321C0B44400067B59E /* SlickData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAB60271C0B44400067B59E /* SlickData.framework */; };
 		EDAB60371C0B44400067B59E /* SlickDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB60361C0B44400067B59E /* SlickDataTests.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED150EA61C11C759004D8391 /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
 		EDAB60271C0B44400067B59E /* SlickData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlickData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAB602A1C0B44400067B59E /* SlickData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlickData.h; sourceTree = "<group>"; };
 		EDAB602C1C0B44400067B59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +52,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED150EA31C11A85A004D8391 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		ED150EA41C11C72E004D8391 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED150EA51C11C759004D8391 /* TestModel.xcdatamodeld */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 		EDAB601D1C0B44400067B59E = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +88,7 @@
 		EDAB60291C0B44400067B59E /* SlickData */ = {
 			isa = PBXGroup;
 			children = (
+				ED150EA31C11A85A004D8391 /* Models */,
 				EDAB602A1C0B44400067B59E /* SlickData.h */,
 				EDAB602C1C0B44400067B59E /* Info.plist */,
 			);
@@ -80,6 +98,7 @@
 		EDAB60351C0B44400067B59E /* SlickDataTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED150EA41C11C72E004D8391 /* DataModel */,
 				EDAB60361C0B44400067B59E /* SlickDataTests.swift */,
 				EDAB60381C0B44410067B59E /* Info.plist */,
 			);
@@ -202,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDAB60371C0B44400067B59E /* SlickDataTests.swift in Sources */,
+				ED150EA71C11C759004D8391 /* TestModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +396,7 @@
 				EDAB603D1C0B44410067B59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDAB603E1C0B44410067B59E /* Build configuration list for PBXNativeTarget "SlickDataTests" */ = {
 			isa = XCConfigurationList;
@@ -384,8 +405,22 @@
 				EDAB60401C0B44410067B59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED150EA51C11C759004D8391 /* TestModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED150EA61C11C759004D8391 /* TestModel.xcdatamodel */,
+			);
+			currentVersion = ED150EA61C11C759004D8391 /* TestModel.xcdatamodel */;
+			path = TestModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EDAB601E1C0B44400067B59E /* Project object */;
 }
