@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15C48a" minimumToolsVersion="Xcode 7.0">
-    <entity name="Jedi" syncable="YES">
-        <attribute name="lightSaberColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="michlorians" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Jedi" representedClassName="Jedi" syncable="YES">
+        <attribute name="lightSaberColor" attributeType="String" syncable="YES"/>
+        <attribute name="midichlorians" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="master" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Jedi" inverseName="padawans" inverseEntity="Jedi" syncable="YES"/>
         <relationship name="padawans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Jedi" inverseName="master" inverseEntity="Jedi" syncable="YES"/>
     </entity>

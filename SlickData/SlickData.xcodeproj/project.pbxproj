@@ -8,9 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		ED150EA71C11C759004D8391 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED150EA51C11C759004D8391 /* TestModel.xcdatamodeld */; };
+		ED150EB41C11C8DC004D8391 /* Jedi+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED150EB21C11C8DC004D8391 /* Jedi+CoreDataProperties.swift */; };
+		ED150EB51C11C8DC004D8391 /* Jedi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED150EB31C11C8DC004D8391 /* Jedi.swift */; };
+		ED2CCAD51C11CB700005B205 /* Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAD41C11CB700005B205 /* Stacks.swift */; };
+		ED2CCAD61C11CB700005B205 /* Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAD41C11CB700005B205 /* Stacks.swift */; };
+		ED2CCAD81C11E7460005B205 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAD71C11E7460005B205 /* Errors.swift */; };
+		ED2CCAD91C11E7460005B205 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAD71C11E7460005B205 /* Errors.swift */; };
+		ED2CCADB1C11E7AE0005B205 /* FileSystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCADA1C11E7AE0005B205 /* FileSystemUtils.swift */; };
+		ED2CCADC1C11E7AE0005B205 /* FileSystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCADA1C11E7AE0005B205 /* FileSystemUtils.swift */; };
+		ED2CCADE1C11FF9E0005B205 /* FileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCADD1C11FF9E0005B205 /* FileSystemTests.swift */; };
+		ED2CCAE41C1200CB0005B205 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAE31C1200CB0005B205 /* TestUtils.swift */; };
+		ED2CCAE61C1207670005B205 /* FrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAE51C1207670005B205 /* FrameworkTests.swift */; };
 		EDAB602B1C0B44400067B59E /* SlickData.h in Headers */ = {isa = PBXBuildFile; fileRef = EDAB602A1C0B44400067B59E /* SlickData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDAB60321C0B44400067B59E /* SlickData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAB60271C0B44400067B59E /* SlickData.framework */; };
-		EDAB60371C0B44400067B59E /* SlickDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB60361C0B44400067B59E /* SlickDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,11 +35,19 @@
 
 /* Begin PBXFileReference section */
 		ED150EA61C11C759004D8391 /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
+		ED150EB21C11C8DC004D8391 /* Jedi+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Jedi+CoreDataProperties.swift"; path = "../Jedi+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ED150EB31C11C8DC004D8391 /* Jedi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Jedi.swift; path = ../Jedi.swift; sourceTree = "<group>"; };
+		ED2CCAD41C11CB700005B205 /* Stacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stacks.swift; sourceTree = SOURCE_ROOT; };
+		ED2CCAD71C11E7460005B205 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = SOURCE_ROOT; };
+		ED2CCADA1C11E7AE0005B205 /* FileSystemUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemUtils.swift; sourceTree = SOURCE_ROOT; };
+		ED2CCADD1C11FF9E0005B205 /* FileSystemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemTests.swift; sourceTree = "<group>"; };
+		ED2CCAE31C1200CB0005B205 /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		ED2CCAE51C1207670005B205 /* FrameworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkTests.swift; sourceTree = "<group>"; };
+		ED2CCAE71C120B710005B205 /* Scratch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Scratch.playground; path = SlickDataTests/Scratch.playground; sourceTree = SOURCE_ROOT; };
 		EDAB60271C0B44400067B59E /* SlickData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlickData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAB602A1C0B44400067B59E /* SlickData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlickData.h; sourceTree = "<group>"; };
 		EDAB602C1C0B44400067B59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDAB60311C0B44400067B59E /* SlickDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlickDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDAB60361C0B44400067B59E /* SlickDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlickDataTests.swift; sourceTree = "<group>"; };
 		EDAB60381C0B44410067B59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +73,9 @@
 		ED150EA31C11A85A004D8391 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED2CCAD41C11CB700005B205 /* Stacks.swift */,
+				ED2CCAD71C11E7460005B205 /* Errors.swift */,
+				ED2CCADA1C11E7AE0005B205 /* FileSystemUtils.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -62,6 +83,8 @@
 		ED150EA41C11C72E004D8391 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				ED150EB21C11C8DC004D8391 /* Jedi+CoreDataProperties.swift */,
+				ED150EB31C11C8DC004D8391 /* Jedi.swift */,
 				ED150EA51C11C759004D8391 /* TestModel.xcdatamodeld */,
 			);
 			name = DataModel;
@@ -91,6 +114,7 @@
 				ED150EA31C11A85A004D8391 /* Models */,
 				EDAB602A1C0B44400067B59E /* SlickData.h */,
 				EDAB602C1C0B44400067B59E /* Info.plist */,
+				ED2CCAE71C120B710005B205 /* Scratch.playground */,
 			);
 			path = SlickData;
 			sourceTree = "<group>";
@@ -98,9 +122,11 @@
 		EDAB60351C0B44400067B59E /* SlickDataTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED2CCAE31C1200CB0005B205 /* TestUtils.swift */,
+				ED2CCADD1C11FF9E0005B205 /* FileSystemTests.swift */,
 				ED150EA41C11C72E004D8391 /* DataModel */,
-				EDAB60361C0B44400067B59E /* SlickDataTests.swift */,
 				EDAB60381C0B44410067B59E /* Info.plist */,
+				ED2CCAE51C1207670005B205 /* FrameworkTests.swift */,
 			);
 			path = SlickDataTests;
 			sourceTree = "<group>";
@@ -213,6 +239,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED2CCADB1C11E7AE0005B205 /* FileSystemUtils.swift in Sources */,
+				ED2CCAD81C11E7460005B205 /* Errors.swift in Sources */,
+				ED2CCAD51C11CB700005B205 /* Stacks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDAB60371C0B44400067B59E /* SlickDataTests.swift in Sources */,
+				ED2CCAD61C11CB700005B205 /* Stacks.swift in Sources */,
+				ED150EB41C11C8DC004D8391 /* Jedi+CoreDataProperties.swift in Sources */,
+				ED2CCADE1C11FF9E0005B205 /* FileSystemTests.swift in Sources */,
+				ED2CCAE41C1200CB0005B205 /* TestUtils.swift in Sources */,
+				ED150EB51C11C8DC004D8391 /* Jedi.swift in Sources */,
+				ED2CCAD91C11E7460005B205 /* Errors.swift in Sources */,
+				ED2CCADC1C11E7AE0005B205 /* FileSystemUtils.swift in Sources */,
+				ED2CCAE61C1207670005B205 /* FrameworkTests.swift in Sources */,
 				ED150EA71C11C759004D8391 /* TestModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +364,7 @@
 		EDAB603C1C0B44410067B59E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -338,12 +375,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.SlickData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		EDAB603D1C0B44410067B59E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
