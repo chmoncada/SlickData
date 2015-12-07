@@ -12,5 +12,6 @@ public enum SlickDataErrors : ErrorType{
     
     case FileExists(url: NSURL)
     case FileSystemError(err: NSError)
+    case GenericError(description: String)
     
 }
