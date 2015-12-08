@@ -16,64 +16,65 @@ import CoreData
 public class BaseSlickDataStack {
     
     //MARK: - Properties
-    let context : NSManagedObjectContext
-    let objectModel : NSManagedObjectModel
-    let storeCoordinator : NSPersistentStoreCoordinator
+    // As of December 2015, there's a bug in version 1.1 of the Swift
+    // compiler that affects instances of classes with stored properties
+    // and failable initializers. Even in the case where the init? returns
+    // nil, values must be assigned to the stored properties. Even if they
+    // will never be used.
+    // See https://devforums.apple.com/thread/251388?start=0&tstart=0
+    // A possible workaround is to have the stored properties declared
+    // as Optionals, even though it's not semantically correct, and bind
+    // them to nil at the beginning of the init?
+    private var _dbURL : NSURL?
+    private var _context : NSManagedObjectContext?
+
     
-    private let _modelURL : NSURL
-    private let _dbFolderURL : NSURL
-    private let _dbURL : NSURL
     
+
     init?(modelName:String, bundle: NSBundle, databaseURL: NSURL){
         
-        var errorMessage : String? = nil
+        let objectModel : NSManagedObjectModel
+        let storeCoordinator : NSPersistentStoreCoordinator
+        let dbFolderURL : NSURL
         
-        // Full URL for the data model
-        if let modelURL = bundle.URLForResource(modelName, withExtension: "momd"){
-            _modelURL = modelURL
-            
-            // All the db files go inside this folder
-            let fm = NSFileManager.defaultManager()
-            _dbFolderURL = fm.documentsURL().URLByAppendingPathComponent(modelName)
-            _dbURL = _dbFolderURL.URLByAppendingPathComponent(modelName)
-            
-            // If it doesn't exist, create it
-            if !fm.fileExistsAtPath(_dbFolderURL.path!){
-                do{
-                    try createFolder(_dbFolderURL)
-                }catch{
-                    errorMessage = "Unable to create folder at \(_dbFolderURL)"
-                }
-            }
 
-            // Create the Stack
-            objectModel = NSManagedObjectModel(contentsOfURL: _modelURL)!
-            
-            storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
-            do{
-                try storeCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: _dbURL, options: nil)
-            }catch let err as NSError{
-                errorMessage = "Error adding a SQLite store: \(err)"
-            }
-            
-            context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-            context.persistentStoreCoordinator = storeCoordinator
-
-            
-        }else{
-            errorMessage = "Could not create url for \(modelName).momd in \(bundle)"
-        }
-        
-        
-        // if the has been any errors, return nil
-        if let errorMessage = errorMessage{
-            print(errorMessage)
+        guard let modelURL = bundle.URLForResource(modelName, withExtension: "momd") else{
+            print("Could not create url for \(modelName).momd in \(bundle)")
             return nil
         }
         
+        // Create a folder that contains all the db files (sqlite and blobs)
+        let fm = NSFileManager.defaultManager()
+        dbFolderURL = fm.documentsURL().URLByAppendingPathComponent(modelName)
+        _dbURL = dbFolderURL.URLByAppendingPathComponent(modelName)
+        
+        // if the folder doesn't exist, go ahead and create it
+        if !fm.fileExistsAtPath(dbFolderURL.path!){
+            do{
+                try createFolder(dbFolderURL)
+            }catch{
+                print("Unable to create folder at \(dbFolderURL)")
+                return nil
+            }
+        }
+        
+        // Create the Stack: this will either open or create the sqlite db file
+        objectModel = NSManagedObjectModel(contentsOfURL: modelURL)!
+        
+        storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
+        do{
+            try storeCoordinator.addPersistentStoreWithType(NSSQLiteStoreType,
+                configuration: nil, URL: _dbURL, options: nil)
+        }catch let err as NSError{
+            print("Error adding a SQLite store: \(err)")
+            return nil
+        }
+        
+        
+        _context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        _context!.persistentStoreCoordinator = storeCoordinator
 
-        
-        
+  
     }
 }
 
