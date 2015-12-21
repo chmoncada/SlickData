@@ -26,7 +26,7 @@ public class BaseSlickDataStack {
     // as Optionals, even though it's not semantically correct, and bind
     // them to nil at the beginning of the init?
     private var _dbURL : NSURL?
-    private var _context : NSManagedObjectContext?
+    private var _mainContext : NSManagedObjectContext?
 
     
     
@@ -93,8 +93,8 @@ public class BaseSlickDataStack {
         }
         
         
-        _context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-        _context!.persistentStoreCoordinator = storeCoordinator
+        _mainContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        _mainContext!.persistentStoreCoordinator = storeCoordinator
 
     }
     
@@ -103,7 +103,6 @@ public class BaseSlickDataStack {
 
 extension BaseSlickDataStack {
     // Convenience Inits
-    
     convenience init?(modelName: String){
         // Finds the model in the Main Bundle (this might fail in tests!)
         // and creates or opens the db inside the documents folder
@@ -128,6 +127,16 @@ extension BaseSlickDataStack {
             bundle: NSBundle.mainBundle(),
             databaseURL: fm.cachesURL())
     }
+}
+
+extension BaseSlickDataStack{
+    
+    // Saving to disk: throws an NSError
+    func commitMainContext() throws{
+        try _mainContext?.save()
+    }
+    
+    
 }
 
 //MARK: - Private Interface
