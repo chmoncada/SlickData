@@ -18,6 +18,8 @@ class BasicStackTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        try! NSFileManager.defaultManager().removeItemAtURL(NSFileManager.defaultManager().cachesURL())
     }
     
     func testExample() {
@@ -25,11 +27,18 @@ class BasicStackTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+
+    func testThatWrongURLReturnsNil(){
+        let s = BaseSlickDataStack(modelName: "test",
+            bundle: NSBundle.testBundle(),
+            databaseURL: NSURL(string: "http://www.udacity.com")!)
+        XCTAssertNil(s)
     }
     
+    func testCorrectParams(){
+        
+        let s = BaseSlickDataStack(modelName: "TestModel", bundle: NSBundle.testBundle(), databaseURL: NSFileManager.defaultManager().cachesURL())
+        
+        XCTAssertNotNil(s)
+    }
 }
