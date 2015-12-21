@@ -58,4 +58,15 @@ class BasicStackTests: XCTestCase {
         XCTAssertNotNil(s)
     }
     
+    
+    func testThatDeleteAllDataRemovesTheContainingFolderToo(){
+        
+        
+        let sut = BaseSlickDataStack(modelName: "TestModel",
+            bundle: NSBundle.testBundle(),
+            databaseURL: NSBundle.testBundle().bundleURL)
+        
+        
+    }
+    
 }

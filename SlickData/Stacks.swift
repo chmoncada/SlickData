@@ -27,14 +27,13 @@ public class BaseSlickDataStack {
     // them to nil at the beginning of the init?
     private var _dbURL : NSURL?
     private var _mainContext : NSManagedObjectContext?
-
+    private var _storeCoordinator : NSPersistentStoreCoordinator?
     
     
 
     init?(modelName:String, bundle: NSBundle, databaseURL: NSURL){
         
         let objectModel : NSManagedObjectModel
-        let storeCoordinator : NSPersistentStoreCoordinator
         let dbFolderURL : NSURL
         
         let fm = NSFileManager.defaultManager()
@@ -83,9 +82,9 @@ public class BaseSlickDataStack {
         // Create the Stack: this will either open or create the sqlite db file
         objectModel = NSManagedObjectModel(contentsOfURL: modelURL)!
         
-        storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
+        _storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         do{
-            try storeCoordinator.addPersistentStoreWithType(NSSQLiteStoreType,
+            try _storeCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType,
                 configuration: nil, URL: _dbURL, options: nil)
         }catch let err as NSError{
             print("Error adding a SQLite store: \(err)")
@@ -94,7 +93,7 @@ public class BaseSlickDataStack {
         
         
         _mainContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-        _mainContext!.persistentStoreCoordinator = storeCoordinator
+        _mainContext!.persistentStoreCoordinator = _storeCoordinator
 
     }
     
@@ -137,7 +136,17 @@ extension BaseSlickDataStack{
     }
     
     
+    func deleteAllData() throws{
+        
+        // delete all the objects in the db
+        try _storeCoordinator?.destroyPersistentStoreAtURL(_dbURL!, withType: NSSQLiteStoreType, options: nil)
+        
+        
+        
+    }
 }
+
+
 
 //MARK: - Private Interface
 class SlickDataStack: BaseSlickDataStack {
