@@ -40,6 +40,15 @@ class FileSystemTests: XCTestCase {
         }
         
     }
+    
+    func testFileSystemObject(){
+        
+        let caches = NSBundle.testBundle().bundlePath
+        let info = NSFileManager.defaultManager().fileSystemObjectInfoAtPath(caches)
+        XCTAssertTrue(info.exists)
+        XCTAssertTrue(info.isFolder)
+    }
+    
 //    func testCreateFolder(){
 //        
 //        XCTAssertNoThrows(try createFolder(testFolder))

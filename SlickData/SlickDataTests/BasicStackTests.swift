@@ -18,8 +18,14 @@ class BasicStackTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+     
+        let fm = NSFileManager.defaultManager()
+        let dbURL = NSBundle.testBundle().bundleURL.URLByAppendingPathComponent("TestModel")
         
-        try! NSFileManager.defaultManager().removeItemAtURL(NSFileManager.defaultManager().cachesURL())
+        if fm.fileExistsAtPath(dbURL.path!){
+            try! fm.removeItemAtURL(dbURL)
+        }
+        
     }
     
     func testExample() {
@@ -28,17 +34,28 @@ class BasicStackTests: XCTestCase {
     }
     
 
-    func testThatWrongURLReturnsNil(){
-        let s = BaseSlickDataStack(modelName: "test",
+    func testThatWebURLReturnsNil(){
+        let s = BaseSlickDataStack(modelName: "TestModel",
             bundle: NSBundle.testBundle(),
             databaseURL: NSURL(string: "http://www.udacity.com")!)
         XCTAssertNil(s)
     }
     
-    func testCorrectParams(){
+    func testThatNonExistingURLReturnsNil(){
         
-        let s = BaseSlickDataStack(modelName: "TestModel", bundle: NSBundle.testBundle(), databaseURL: NSFileManager.defaultManager().cachesURL())
+        let s = BaseSlickDataStack(modelName: "TestModel",
+            bundle: NSBundle.testBundle(),
+            databaseURL: NSURL(string: "file:///xyz")!)
+        XCTAssertNil(s)
+    }
+    
+    func testThatCorrectParamsReturnsInstance(){
+        
+        let s = BaseSlickDataStack(modelName: "TestModel",
+            bundle: NSBundle.testBundle(),
+            databaseURL: NSBundle.testBundle().bundleURL)
         
         XCTAssertNotNil(s)
     }
+    
 }

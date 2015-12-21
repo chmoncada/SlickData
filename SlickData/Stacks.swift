@@ -37,15 +37,37 @@ public class BaseSlickDataStack {
         let storeCoordinator : NSPersistentStoreCoordinator
         let dbFolderURL : NSURL
         
+        let fm = NSFileManager.defaultManager()
 
+        // That momd file (the model) better exist inside the bundle
         guard let modelURL = bundle.URLForResource(modelName, withExtension: "momd") else{
-            print("Could not create url for \(modelName).momd in \(bundle)")
+            print("Could not create url for \(modelName).momd in \(bundle). Maybe there's no \(modelName) inside \(bundle)")
             return nil
         }
         
-        // Create a folder that contains all the db files (sqlite and blobs)
-        let fm = NSFileManager.defaultManager()
-        dbFolderURL = fm.documentsURL().URLByAppendingPathComponent(modelName)
+        // databaseURL:
+        // * must be a file url
+        // * must exist
+        // * must be a folder
+        // * will create a subfolder named 'modelName'
+        guard let dbPath = databaseURL.path else{
+            print("\(databaseURL) must be a file url!")
+            return nil
+        }
+        
+        let info = fm.fileSystemObjectInfoAtPath(dbPath)
+        if info.exists == false{
+            print("\(dbPath) doesn't exist")
+            return nil
+        }
+        if info.isFolder == false {
+            print("\(dbPath) is not a folder")
+            return nil
+        }
+        
+        
+        // Create a subfolder that contains all the db files (sqlite and blobs)
+        dbFolderURL = databaseURL.URLByAppendingPathComponent(modelName)
         _dbURL = dbFolderURL.URLByAppendingPathComponent(modelName)
         
         // if the folder doesn't exist, go ahead and create it
