@@ -96,13 +96,43 @@ public class BaseSlickDataStack {
         _context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         _context!.persistentStoreCoordinator = storeCoordinator
 
-  
+    }
+    
+    
+}
+
+extension BaseSlickDataStack {
+    // Convenience Inits
+    
+    convenience init?(modelName: String){
+        // Finds the model in the Main Bundle (this might fail in tests!)
+        // and creates or opens the db inside the documents folder
+        
+        let fm = NSFileManager.defaultManager()
+        
+        self.init(modelName: modelName,
+            bundle: NSBundle.mainBundle(),
+            databaseURL: fm.documentsURL())
+        
+    }
+    
+    convenience init?(temporaryStackWithModelName modelName: String){
+        // Finds the model in the Main Bundle (might fail in tests)
+        // and creates or opens the db inside the caches folder.
+        // This data might be deleted by the OS!!!
+        // Use it for temporary stuff, or else!!
+        
+        let fm = NSFileManager.defaultManager()
+        
+        self.init(modelName: modelName,
+            bundle: NSBundle.mainBundle(),
+            databaseURL: fm.cachesURL())
     }
 }
 
 //MARK: - Private Interface
-
 class SlickDataStack: BaseSlickDataStack {
+    
     
 }
 
