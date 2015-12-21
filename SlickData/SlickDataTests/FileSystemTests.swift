@@ -40,13 +40,13 @@ class FileSystemTests: XCTestCase {
         }
         
     }
-    func testCreateFolder(){
-        
-        XCTAssertNoThrows(try createFolder(testFolder))
-        XCTAssertThrows(try createFolder(testFolder))
-        
-        
-    }
+//    func testCreateFolder(){
+//        
+//        XCTAssertNoThrows(try createFolder(testFolder))
+//        XCTAssertThrows(try createFolder(testFolder))
+//        
+//        
+//    }
 
 
 }
