@@ -12,7 +12,7 @@ import XCTest
 // The test bundle (only works if inside the test target)
 extension NSBundle{
     
-    func testBundle()->NSBundle{
+    class func testBundle()->NSBundle{
         class Foo{}     // dummy class
         
         let b = NSBundle(forClass: Foo.self)
