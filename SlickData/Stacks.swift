@@ -100,8 +100,9 @@ public class BaseSlickDataStack {
     
 }
 
+//MARK: - Convenience Inits
 extension BaseSlickDataStack {
-    // Convenience Inits
+    
     convenience init?(modelName: String){
         // Finds the model in the Main Bundle (this might fail in tests!)
         // and creates or opens the db inside the documents folder
@@ -128,6 +129,19 @@ extension BaseSlickDataStack {
     }
 }
 
+//MARK: - Context
+extension BaseSlickDataStack{
+    
+    typealias ContextHandler = (context: NSManagedObjectContext)->Void
+    
+    func performWithMainContext(handler: ContextHandler){
+        _mainContext?.performBlock({ () -> Void in
+            handler(context: self._mainContext!)
+        })
+    }
+}
+
+//MARK: - File System
 extension BaseSlickDataStack{
     
     // Saving to disk: throws an NSError
