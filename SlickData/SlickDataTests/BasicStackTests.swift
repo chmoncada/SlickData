@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreData
 
 class BasicStackTests: XCTestCase {
     
@@ -19,13 +20,13 @@ class BasicStackTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
      
-        let fm = NSFileManager.defaultManager()
-        let dbURL = NSBundle.testBundle().bundleURL.URLByAppendingPathComponent("TestModel")
-        
-        if fm.fileExistsAtPath(dbURL.path!){
-            try! fm.removeItemAtURL(dbURL)
-        }
-        
+//        let fm = NSFileManager.defaultManager()
+//        let dbURL = NSBundle.testBundle().bundleURL.URLByAppendingPathComponent("TestModel")
+//        
+//        if fm.fileExistsAtPath(dbURL.path!){
+//            try! fm.removeItemAtURL(dbURL)
+//        }
+//        
     }
     
     func testExample() {
@@ -59,14 +60,6 @@ class BasicStackTests: XCTestCase {
     }
     
     
-    func testThatDeleteAllDataRemovesTheContainingFolderToo(){
-        
-        
-        let sut = BaseSlickDataStack(modelName: "TestModel",
-            bundle: NSBundle.testBundle(),
-            databaseURL: NSBundle.testBundle().bundleURL)
-        
-        
-    }
+    
     
 }

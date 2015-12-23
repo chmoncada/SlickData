@@ -29,7 +29,11 @@ public class BaseSlickDataStack {
     private var _mainContext : NSManagedObjectContext?
     private var _storeCoordinator : NSPersistentStoreCoordinator?
     
-    
+    //MARK : - Autosave
+    var autoSave : Bool = false
+    var autoSaveDelayInSeconds : Int = 60
+    private var autoSaver : ContextAutoSaver?
+
 
     init?(modelName:String, bundle: NSBundle, databaseURL: NSURL){
         
@@ -67,7 +71,7 @@ public class BaseSlickDataStack {
         
         // Create a subfolder that contains all the db files (sqlite and blobs)
         dbFolderURL = databaseURL.URLByAppendingPathComponent(modelName)
-        _dbURL = dbFolderURL.URLByAppendingPathComponent(modelName)
+        _dbURL = dbFolderURL.URLByAppendingPathComponent(modelName).URLByAppendingPathExtension("sqlite")
         
         // if the folder doesn't exist, go ahead and create it
         if !fm.fileExistsAtPath(dbFolderURL.path!){
@@ -94,10 +98,16 @@ public class BaseSlickDataStack {
         
         _mainContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         _mainContext!.persistentStoreCoordinator = _storeCoordinator
-
+        
+        
+        // Autosaver
+        autoSaver = ContextAutoSaver(context: _mainContext!)
+        autoSaver!.on = autoSave
+        autoSaver!.intervalInSeconds = autoSaveDelayInSeconds
     }
     
     
+
 }
 
 //MARK: - Convenience Inits
@@ -135,9 +145,16 @@ extension BaseSlickDataStack{
     typealias ContextHandler = (context: NSManagedObjectContext)->Void
     
     func performWithMainContext(handler: ContextHandler){
-        _mainContext?.performBlock({ () -> Void in
+        
+        dispatch_sync(dispatch_get_main_queue()) { () -> Void in
             handler(context: self._mainContext!)
-        })
+        }
+        
+        
+    }
+    
+    var mainContext : NSManagedObjectContext{
+        return _mainContext!
     }
 }
 
@@ -152,9 +169,32 @@ extension BaseSlickDataStack{
     
     func deleteAllData() throws{
         
-        // delete all the objects in the db
+        // delete all the objects in the db. This won't delete the files, it will
+        // just leave empty tables.
         try _storeCoordinator?.destroyPersistentStoreAtURL(_dbURL!, withType: NSSQLiteStoreType, options: nil)
         
+        // Delete all external blobs (anything wich isn't a sqlite or finder file)
+        let folder = _dbURL?.URLByDeletingLastPathComponent!
+        let fm = NSFileManager.defaultManager()
+        var filesToDelete = try fm.contentsOfDirectoryAtPath((folder?.path)!)
+        
+        let sqlite = ["sqlite", "sqlite-shm", "sqlite-wal"]
+        let finder = [".localized", ".DS_Store"]
+        
+        let finderPred = NSPredicate(format: "NOT self IN %@", finder)
+        let sqlitePred = NSPredicate(format: "pathExtension IN %@", sqlite)
+        
+        var filter = NSCompoundPredicate(notPredicateWithSubpredicate: sqlitePred)
+        filter = NSCompoundPredicate(andPredicateWithSubpredicates: [filter,finderPred])
+        
+        // Get all the file names to delete
+        filesToDelete = filesToDelete.filter{filter.evaluateWithObject($0)}
+        
+        // Delete
+        for eachFile in filesToDelete{
+            let fileURL = folder?.URLByAppendingPathComponent(eachFile)
+            try fm.removeItemAtURL(fileURL!)
+        }
         
         
     }
@@ -175,3 +215,6 @@ class ReadOnlyStack: BaseSlickDataStack {
 class InMemoryStack: BaseSlickDataStack {
     
 }
+
+
+

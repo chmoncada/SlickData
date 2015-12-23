@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0E52CA1C29F5E900B4CA3B /* darthVader.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ED0E52C91C29F5E900B4CA3B /* darthVader.jpeg */; };
+		ED0E52CC1C29F5FF00B4CA3B /* obiWan.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ED0E52CB1C29F5FF00B4CA3B /* obiWan.jpeg */; };
+		ED0E52CE1C29FFA100B4CA3B /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E52CD1C29FFA100B4CA3B /* CoreData.swift */; };
 		ED150EA71C11C759004D8391 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED150EA51C11C759004D8391 /* TestModel.xcdatamodeld */; };
-		ED150EB41C11C8DC004D8391 /* Jedi+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED150EB21C11C8DC004D8391 /* Jedi+CoreDataProperties.swift */; };
 		ED150EB51C11C8DC004D8391 /* Jedi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED150EB31C11C8DC004D8391 /* Jedi.swift */; };
+		ED2232F11C2B371200BE15F7 /* AutoSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2232F01C2B371200BE15F7 /* AutoSaver.swift */; };
+		ED2232F21C2B371200BE15F7 /* AutoSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2232F01C2B371200BE15F7 /* AutoSaver.swift */; };
 		ED2CCAD51C11CB700005B205 /* Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAD41C11CB700005B205 /* Stacks.swift */; };
 		ED2CCAD61C11CB700005B205 /* Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAD41C11CB700005B205 /* Stacks.swift */; };
 		ED2CCAD81C11E7460005B205 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CCAD71C11E7460005B205 /* Errors.swift */; };
@@ -22,6 +26,7 @@
 		ED3BB2091C2863E80048CE0E /* BasicStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3BB2081C2863E80048CE0E /* BasicStackTests.swift */; };
 		ED3BB20C1C2870390048CE0E /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3BB20B1C2870390048CE0E /* FileManager.swift */; };
 		ED3BB20D1C2870390048CE0E /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3BB20B1C2870390048CE0E /* FileManager.swift */; };
+		ED3BB2111C28AF8E0048CE0E /* Jedi+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3BB2101C28AF8E0048CE0E /* Jedi+CoreDataProperties.swift */; };
 		EDAB602B1C0B44400067B59E /* SlickData.h in Headers */ = {isa = PBXBuildFile; fileRef = EDAB602A1C0B44400067B59E /* SlickData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDAB60321C0B44400067B59E /* SlickData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAB60271C0B44400067B59E /* SlickData.framework */; };
 /* End PBXBuildFile section */
@@ -37,9 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED0E52C91C29F5E900B4CA3B /* darthVader.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = darthVader.jpeg; sourceTree = "<group>"; };
+		ED0E52CB1C29F5FF00B4CA3B /* obiWan.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = obiWan.jpeg; sourceTree = "<group>"; };
+		ED0E52CD1C29FFA100B4CA3B /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreData.swift; path = SlickDataTests/CoreData.swift; sourceTree = SOURCE_ROOT; };
 		ED150EA61C11C759004D8391 /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
-		ED150EB21C11C8DC004D8391 /* Jedi+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Jedi+CoreDataProperties.swift"; path = "../Jedi+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED150EB31C11C8DC004D8391 /* Jedi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Jedi.swift; path = ../Jedi.swift; sourceTree = "<group>"; };
+		ED2232F01C2B371200BE15F7 /* AutoSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoSaver.swift; sourceTree = SOURCE_ROOT; };
 		ED2CCAD41C11CB700005B205 /* Stacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stacks.swift; sourceTree = SOURCE_ROOT; };
 		ED2CCAD71C11E7460005B205 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = SOURCE_ROOT; };
 		ED2CCADA1C11E7AE0005B205 /* FileSystemUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemUtils.swift; sourceTree = SOURCE_ROOT; };
@@ -49,6 +57,7 @@
 		ED2CCAE71C120B710005B205 /* Scratch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Scratch.playground; path = SlickDataTests/Scratch.playground; sourceTree = SOURCE_ROOT; };
 		ED3BB2081C2863E80048CE0E /* BasicStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicStackTests.swift; sourceTree = "<group>"; };
 		ED3BB20B1C2870390048CE0E /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileManager.swift; path = SlickDataTests/FileManager.swift; sourceTree = SOURCE_ROOT; };
+		ED3BB2101C28AF8E0048CE0E /* Jedi+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Jedi+CoreDataProperties.swift"; path = "../Jedi+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EDAB60271C0B44400067B59E /* SlickData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlickData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAB602A1C0B44400067B59E /* SlickData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlickData.h; sourceTree = "<group>"; };
 		EDAB602C1C0B44400067B59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +90,7 @@
 				ED2CCAD41C11CB700005B205 /* Stacks.swift */,
 				ED2CCAD71C11E7460005B205 /* Errors.swift */,
 				ED2CCADA1C11E7AE0005B205 /* FileSystemUtils.swift */,
+				ED2232F01C2B371200BE15F7 /* AutoSaver.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -88,19 +98,22 @@
 		ED150EA41C11C72E004D8391 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				ED150EB21C11C8DC004D8391 /* Jedi+CoreDataProperties.swift */,
+				ED0E52C91C29F5E900B4CA3B /* darthVader.jpeg */,
+				ED0E52CB1C29F5FF00B4CA3B /* obiWan.jpeg */,
+				ED3BB2101C28AF8E0048CE0E /* Jedi+CoreDataProperties.swift */,
 				ED150EB31C11C8DC004D8391 /* Jedi.swift */,
 				ED150EA51C11C759004D8391 /* TestModel.xcdatamodeld */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
 		};
-		ED3BB20A1C2870110048CE0E /* Foundation */ = {
+		ED3BB20A1C2870110048CE0E /* Cocoa */ = {
 			isa = PBXGroup;
 			children = (
 				ED3BB20B1C2870390048CE0E /* FileManager.swift */,
+				ED0E52CD1C29FFA100B4CA3B /* CoreData.swift */,
 			);
-			name = Foundation;
+			name = Cocoa;
 			sourceTree = "<group>";
 		};
 		EDAB601D1C0B44400067B59E = {
@@ -124,7 +137,7 @@
 		EDAB60291C0B44400067B59E /* SlickData */ = {
 			isa = PBXGroup;
 			children = (
-				ED3BB20A1C2870110048CE0E /* Foundation */,
+				ED3BB20A1C2870110048CE0E /* Cocoa */,
 				ED150EA31C11A85A004D8391 /* Models */,
 				EDAB602A1C0B44400067B59E /* SlickData.h */,
 				EDAB602C1C0B44400067B59E /* Info.plist */,
@@ -244,6 +257,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0E52CA1C29F5E900B4CA3B /* darthVader.jpeg in Resources */,
+				ED0E52CC1C29F5FF00B4CA3B /* obiWan.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +273,8 @@
 				ED2CCAD81C11E7460005B205 /* Errors.swift in Sources */,
 				ED2CCAD51C11CB700005B205 /* Stacks.swift in Sources */,
 				ED3BB20C1C2870390048CE0E /* FileManager.swift in Sources */,
+				ED2232F11C2B371200BE15F7 /* AutoSaver.swift in Sources */,
+				ED0E52CE1C29FFA100B4CA3B /* CoreData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +284,9 @@
 			files = (
 				ED2CCAD61C11CB700005B205 /* Stacks.swift in Sources */,
 				ED3BB2091C2863E80048CE0E /* BasicStackTests.swift in Sources */,
-				ED150EB41C11C8DC004D8391 /* Jedi+CoreDataProperties.swift in Sources */,
+				ED3BB2111C28AF8E0048CE0E /* Jedi+CoreDataProperties.swift in Sources */,
 				ED2CCADE1C11FF9E0005B205 /* FileSystemTests.swift in Sources */,
+				ED2232F21C2B371200BE15F7 /* AutoSaver.swift in Sources */,
 				ED2CCAE41C1200CB0005B205 /* TestUtils.swift in Sources */,
 				ED150EB51C11C8DC004D8391 /* Jedi.swift in Sources */,
 				ED2CCAD91C11E7460005B205 /* Errors.swift in Sources */,
