@@ -149,16 +149,11 @@ extension BaseSlickDataStack{
     
     func performWithMainContext(handler: ContextHandler){
         
-        dispatch_sync(dispatch_get_main_queue()) { () -> Void in
             handler(context: self._mainContext!)
-        }
-        
-        
+   
     }
     
-    var mainContext : NSManagedObjectContext{
-        return _mainContext!
-    }
+
 }
 
 //MARK: - File System
