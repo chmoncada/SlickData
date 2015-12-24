@@ -88,9 +88,11 @@ public class BaseSlickDataStack {
         
         _storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         do{
+            let options = [NSMigratePersistentStoresAutomaticallyOption: true,
+                NSInferMappingModelAutomaticallyOption : true]
             
             try _storeCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType,
-                configuration: nil, URL: _dbURL, options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption : true])
+                configuration: nil, URL: _dbURL, options: options)
         }catch let err as NSError{
             print("Error adding a SQLite store: \(err)")
             return nil
