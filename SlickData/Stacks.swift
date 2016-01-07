@@ -198,10 +198,19 @@ extension BaseSlickDataStack{
     }
 }
 
-
+// MARK:  - Protocols
+extension BaseSlickDataStack : CustomStringConvertible{
+    var description : String{
+        var desc =  "SlickData.BasicSlickDataStack\n\tVersion: \(SlickDataVersionNumber)"
+        desc = desc + "\n\tDB: \(_dbURL)"
+        return desc
+    }
+    
+}
 
 //MARK: - Private Interface
 class SlickDataStack: BaseSlickDataStack {
+    
     
     
 }
