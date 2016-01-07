@@ -35,7 +35,7 @@ public class BaseSlickDataStack {
     private var autoSaver : ContextAutoSaver?
 
 
-    init?(modelName:String, bundle: NSBundle, databaseURL: NSURL){
+    public init?(modelName:String, bundle: NSBundle, databaseURL: NSURL){
         
         let objectModel : NSManagedObjectModel
         let dbFolderURL : NSURL
@@ -116,7 +116,7 @@ public class BaseSlickDataStack {
 //MARK: - Convenience Inits
 extension BaseSlickDataStack {
     
-    convenience init?(modelName: String){
+    public convenience init?(modelName: String){
         // Finds the model in the Main Bundle (this might fail in tests!)
         // and creates or opens the db inside the documents folder
         
@@ -128,7 +128,7 @@ extension BaseSlickDataStack {
         
     }
     
-    convenience init?(temporaryStackWithModelName modelName: String){
+    public convenience init?(temporaryStackWithModelName modelName: String){
         // Finds the model in the Main Bundle (might fail in tests)
         // and creates or opens the db inside the caches folder.
         // This data might be deleted by the OS!!!
@@ -160,12 +160,12 @@ extension BaseSlickDataStack{
 extension BaseSlickDataStack{
     
     // Saving to disk: throws an NSError
-    func commitMainContext() throws{
+    public func commitMainContext() throws{
         try _mainContext?.save()
     }
     
     
-    func deleteAllData() throws{
+    public func deleteAllData() throws{
         
         // delete all the objects in the db. This won't delete the files, it will
         // just leave empty tables.
